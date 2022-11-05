@@ -20,3 +20,15 @@ services:
       - .:/home
       - m2:/root/.m2
     entrypoint: /bin/bash
+    
+  watch:  
+    build: .
+    working_dir: /home
+    ports:
+      - "9630:9630"
+    volumes:
+      - .:/home
+      - m2:/root/.m2
+    networks:
+      - default
+    entrypoint: npx shadow-cljs watch script --config-merge '{:http {:host "watch"}}'

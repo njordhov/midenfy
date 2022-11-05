@@ -5,7 +5,8 @@
   "src/test"]
 
  :dependencies
- [[org.clojure/tools.cli "1.0.214"]]
+ [[org.clojure/tools.cli "1.0.214"]
+  #_[org.clojure/data.csv {:git/url "https://github.com/clojure/data.csv.git"}]]
 
  :builds
  {:script 
