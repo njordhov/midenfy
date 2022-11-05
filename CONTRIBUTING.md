@@ -1,5 +1,11 @@
 # CONTRIBUTING
 
+## EXECUTE WITH HOTLOAD 
+
+Execute the script with hotloading and repeat on code changes:
+
+$ `docker-compose run script --help`
+
 ## START WATCHER
 
 Start a watcher in the background, which will recompile the script and hotload 
