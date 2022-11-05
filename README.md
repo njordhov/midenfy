@@ -9,6 +9,12 @@ Generate code for the Polygon Miden VM
 
 https://github.com/maticnetwork/miden/tree/main/miden
 
+## Usage 
+
+```
+$ docker compose run midenfy --help
+``` 
+
 ## Miden
 
 > Miden VM is a zero-knowledge virtual machine written in Rust. For any program 

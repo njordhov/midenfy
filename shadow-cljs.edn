@@ -5,7 +5,10 @@
   "src/test"]
 
  :dependencies
- []
+ [[org.clojure/tools.cli "1.0.214"]]
 
  :builds
- {}}
+ {:script 
+  {:target    :node-script
+   :main      midenfy.core/main
+   :output-to "midenfy.js"}}}

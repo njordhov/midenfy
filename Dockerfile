@@ -8,6 +8,12 @@ RUN apt-get autoremove -y
 RUN apt-get install -y nodejs
 RUN node -v
 
+COPY . /app
+WORKDIR /app
+RUN npm install
+RUN npx shadow-cljs release script
+RUN echo 'alias midenfy="node /app/midenfy.js"' >> ~/.bashrc
+
 WORKDIR /home
 
 ENTRYPOINT ["bash"]

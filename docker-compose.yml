@@ -5,6 +5,14 @@ volumes:
 
 services:
   
+  midenfy:  
+    build: .
+    working_dir: /home
+    volumes:
+      - $PWD:/home
+      - m2:/root/.m2
+    entrypoint: ["node", "/app/midenfy.js"]
+  
   console:  
     build: .
     working_dir: /home
