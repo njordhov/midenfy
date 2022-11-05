@@ -32,3 +32,15 @@ services:
     networks:
       - default
     entrypoint: npx shadow-cljs watch script --config-merge '{:http {:host "watch"}}'
+    
+  script:
+    build: .
+    working_dir: /home
+    depends_on:
+      - watch
+    volumes:
+      - .:/home
+      - m2:/root/.m2
+    networks:
+      - default
+    entrypoint: ["node", "midenfy.js"]
