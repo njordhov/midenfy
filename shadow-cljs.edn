@@ -8,6 +8,8 @@
  [[org.clojure/tools.cli "1.0.214"]
   #_[org.clojure/data.csv {:git/url "https://github.com/clojure/data.csv.git"}]]
 
+ :http {:host "watch"}
+ 
  :builds
  {:script 
   {:target    :node-script
