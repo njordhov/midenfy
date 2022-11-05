@@ -9,5 +9,10 @@
 (defn main [& args]
   (let [{:keys [arguments options summary errors] :as opts}
         (parse-opts args cli-options)]
-    (println summary)))
-
+    (cond 
+      (some? (:help options))
+      (do 
+        (println "Compiler for the Polygon Miden VM")
+        (println "Usage: midenfy [options] file*")
+        (println "Options:")
+        (println summary)))))
