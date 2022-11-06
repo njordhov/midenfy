@@ -1,6 +1,9 @@
 (ns midenfy.core
   (:require 
    [clojure.tools.cli :refer [parse-opts]]
+   [cljs-node-io.core :as io 
+    :refer [slurp]]
+   [clariform.ast.parser :as clarity]
    [midenfy.compiler :as compiler 
     :refer [compile]]
    [midenfy.formatter :as formatter 
@@ -14,16 +17,16 @@
   (cond
     (some? errors)
     (println errors)
-    (empty? arguments)
-    (let [ast [:S [:list [:symbol "+"] [:int "1"] [:int "2"]]]]
-      (println (-> ast compile format ((partial apply str)))))
-    (or (some? (:help options))
-        (and (empty? arguments) (empty? options)))
+    (some? (:help options))
     (do 
       (println "Compiler for the Polygon Miden VM")
-      (println "Usage: midenfy [options] file*")
+      (println "Usage: midenfy [options] filepath")
       (println "Options:")
-      (println summary))))
+      (println summary))
+    :else
+    (let [code (if (empty? arguments) "(- 1 7)" (slurp (first arguments)))
+          ast (clarity/parse-robust code)]
+      (println (-> ast compile format ((partial apply str)))))))
 
 (defonce command (atom nil))
 

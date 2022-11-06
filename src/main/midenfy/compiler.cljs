@@ -34,6 +34,9 @@
 (defmethod compile-form :list [form]
   (compile-call form))
 
+(defmethod compile-form :toplevel [form]
+  (mapcat compile-form (rest form)))
+
 (defmethod compile-form :S [form]
   (into [:masm/begin]
         (mapcat compile-form (rest form))))

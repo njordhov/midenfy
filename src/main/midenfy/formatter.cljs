@@ -25,6 +25,7 @@
       (apply str "push.")
       (indent level)
       (linebreak))
-     (list (pr-str ast))
-     :masm/checked_add
-     (indent level (-> "checked-add" linebreak)))))
+     (cond
+       (keyword? (first ast))
+       (indent level (linebreak (name (first ast))))
+       :else (list (pr-str ast))))))

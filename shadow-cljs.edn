@@ -1,11 +1,5 @@
 ;; shadow-cljs configuration
-{:source-paths
- ["src/dev"
-  "src/main"
-  "src/test"]
-
- :dependencies
- [[org.clojure/tools.cli "1.0.214"]]
+{:deps {:aliases [:cljs :shadow :devtools]}
 
  :http {:host "watch"}
  
