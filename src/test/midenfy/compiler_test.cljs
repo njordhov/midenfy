@@ -3,10 +3,13 @@
    [cljs.test :refer (deftest is)]
    [clojure.string :as string]
    [shadow.resource :as rc]
-   [midenfy.core :as midenfy 
-    :refer [midenfy]]))
+   [midenfy.compiler :as compiler
+    :refer [compile]]))
    
 (deftest addition-test
-  (is (= (midenfy [:S [:symbol "+"] [:int "1"] [:int "2"]])
-         [:begin [:push 1 2] [:checked_add]])      
+  (is (= (compile [:S [:list [:symbol "+"] [:int "1"] [:int "2"]]])
+         [:masm/begin 
+          [:masm/push [:masm/int "1"]]
+          [:masm/push [:masm/int "2"]]
+          [:masm/checked_add]])     
       "Compile (+ 1 2)"))
