@@ -2,6 +2,11 @@
   (:require 
    [clojure.tools.cli :refer [parse-opts]]))
 
+(defn midenfy [expression]
+  [:begin 
+   [:push 1 2]
+   [:checked_add]])
+
 (def cli-options
   [[nil "--version"]
    ["-h" "--help"]])
