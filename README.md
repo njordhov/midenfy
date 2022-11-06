@@ -11,9 +11,17 @@ https://github.com/maticnetwork/miden/tree/main/miden
 
 ## Usage 
 
+Execute with docker:
+
 ```
 $ docker compose run midenfy --help
-``` 
+```
+
+Compile a Clarity contract file into Miden masm:
+
+```
+$ docker compose run midenfy src/clarity/simple.clar
+```  
 
 ## Miden
 
