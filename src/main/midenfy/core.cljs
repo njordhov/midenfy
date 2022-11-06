@@ -2,7 +2,9 @@
   (:require 
    [clojure.tools.cli :refer [parse-opts]]
    [midenfy.compiler :as compiler 
-    :refer [compile]]))
+    :refer [compile]]
+   [midenfy.formatter :as formatter 
+    :refer [format]]))
 
 (def cli-options
   [[nil "--version"]
@@ -13,8 +15,8 @@
     (some? errors)
     (println errors)
     (empty? arguments)
-    (println (-> [:S [:list [:symbol "+"] [:int "1"] [:int "2"]]]
-                 compile))
+    (let [ast [:S [:list [:symbol "+"] [:int "1"] [:int "2"]]]]
+      (println (-> ast compile format ((partial apply str)))))
     (or (some? (:help options))
         (and (empty? arguments) (empty? options)))
     (do 
