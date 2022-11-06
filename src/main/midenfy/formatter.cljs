@@ -26,6 +26,12 @@
       (apply str "push.")
       (indent level)
       (linebreak))
+     :masm/proc
+     (concat
+       (list (indent level (str "proc." (replace (second ast) #"-" "_") ".0")))
+       (mapcat (partial format (+ 1 level))
+               (rest ast))
+       (list (indent level (linebreak "end"))))
      (cond
        (keyword? (first ast))
        (indent level (linebreak (name (first ast))))

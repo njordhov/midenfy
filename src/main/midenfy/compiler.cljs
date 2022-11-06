@@ -40,6 +40,13 @@
       (map push-arg args) 
       (list [:masm/checked_div]))))
 
+(defmethod compile-call "define-public" [exp]
+  (let [args (rest (rest exp))]
+        ;;fname (first (first exp))
+        ;; body (rest (rest exp))]
+    (list* [:masm/proc "zzz"] 
+           (map compile-call (rest args)))))
+
 (defmethod compile-form :default [form]
   nil)
 
