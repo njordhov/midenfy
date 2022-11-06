@@ -33,7 +33,10 @@
 (defn main [& args]
   (let [opts (parse-opts args cli-options)]
     (reset! command opts)
-    (execute opts)))
+    (try
+      (execute opts)
+      (catch :default e
+        (println e)))))
 
 (defn ^:dev/after-load activate! []
   (println "# Executing command:" @command)
