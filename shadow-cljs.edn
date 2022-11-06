@@ -5,8 +5,7 @@
   "src/test"]
 
  :dependencies
- [[org.clojure/tools.cli "1.0.214"]
-  #_[org.clojure/data.csv {:git/url "https://github.com/clojure/data.csv.git"}]]
+ [[org.clojure/tools.cli "1.0.214"]]
 
  :http {:host "watch"}
  
@@ -14,4 +13,11 @@
  {:script 
   {:target    :node-script
    :main      midenfy.core/main
-   :output-to "midenfy.js"}}}
+   :output-to "midenfy.js"
+   :devtools {:devtools-url "http://watch:9630"
+              :autoload true
+              :ignore-warnings true}}
+  :test
+  {:target    :node-test
+   :output-to "out/node-tests.js"
+   :autorun   true}}}
