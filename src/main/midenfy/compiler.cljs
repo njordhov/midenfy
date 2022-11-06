@@ -5,6 +5,10 @@
            (= :symbol (first (second exp))))
     (second (second exp))))
 
+(defn form-content [exp]
+  (if (and (= :list (first exp)))
+    (rest (rest exp))))
+
 (defn symbol-name [form]
   (case (first form)
     :symbol (second form)))
@@ -18,34 +22,34 @@
     :int [:masm/push [:masm/int (second exp)]]))
 
 (defmethod compile-call :default [exp]
-  nil)
+  [:masm/exec (form-symbol exp) (form-content exp)])
 
 (defmethod compile-call "+" [exp]
-  (let [args (rest (rest exp))]
+  (let [args (form-content exp)]
     (concat 
       (map push-arg args) 
       (list [:masm/checked_add]))))
 
 (defmethod compile-call "-" [exp]
-  (let [args (rest (rest exp))]
+  (let [args (form-content exp)]
     (concat 
       (map push-arg args) 
       (list [:masm/checked_sub]))))
 
 (defmethod compile-call "*" [exp]
-  (let [args (rest (rest exp))]
+  (let [args (form-content exp)]
     (concat 
       (map push-arg args) 
       (list [:masm/checked_mul]))))
 
 (defmethod compile-call "/" [exp]
-  (let [args (rest (rest exp))]
+  (let [args (form-content exp)]
     (concat 
       (map push-arg args) 
       (list [:masm/checked_div]))))
 
 (defmethod compile-call "define-public" [exp]
-  (let [content (rest (rest exp))
+  (let [content (form-content exp)
         head (first content)
         body (rest content)
         fname (symbol-name (second head))]
