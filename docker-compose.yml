@@ -44,3 +44,15 @@ services:
     networks:
       - default
     entrypoint: ["node", "midenfy.js"]
+    
+  test:
+    build: .
+    working_dir: /home
+    depends_on:
+      - watch
+    volumes:
+      - .:/home
+      - m2:/root/.m2
+    networks:
+      - default
+    entrypoint: ["npx", "shadow-cljs", "compile", "test"]
