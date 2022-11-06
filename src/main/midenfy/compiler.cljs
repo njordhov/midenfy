@@ -28,6 +28,18 @@
       (map push-arg args) 
       (list [:masm/checked_sub]))))
 
+(defmethod compile-call "*" [exp]
+  (let [args (rest (rest exp))]
+    (concat 
+      (map push-arg args) 
+      (list [:masm/checked_mul]))))
+
+(defmethod compile-call "/" [exp]
+  (let [args (rest (rest exp))]
+    (concat 
+      (map push-arg args) 
+      (list [:masm/checked_div]))))
+
 (defmethod compile-form :default [form]
   nil)
 
