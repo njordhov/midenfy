@@ -24,7 +24,7 @@
       (println "Options:")
       (println summary))
     :else
-    (let [code (if (empty? arguments) "(- 1 7)" (slurp (first arguments)))
+    (let [code (slurp (first arguments))
           ast (clarity/parse-robust code)]
       (println (-> ast compile format ((partial apply str)))))))
 
