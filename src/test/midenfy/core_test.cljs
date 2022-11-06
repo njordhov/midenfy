@@ -5,6 +5,9 @@
    [shadow.resource :as rc]))
    
 (deftest positive-test
-  (is true))
+  (is (= true true)
+      "Always true"))
 
-
+(deftest negative-test
+  (is (= true false)
+      "Always false"))

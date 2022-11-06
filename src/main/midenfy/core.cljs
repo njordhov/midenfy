@@ -6,16 +6,27 @@
   [[nil "--version"]
    ["-h" "--help"]])
 
+(defn execute [{:keys [arguments options summary errors] :as opts}]
+  (cond
+    (some? errors)
+    (println errors)
+    (empty? arguments)
+    (println "Hello")
+    (or (some? (:help options))
+        (and (empty? arguments) (empty? options)))
+    (do 
+      (println "Compiler for the Polygon Miden VM")
+      (println "Usage: midenfy [options] file*")
+      (println "Options:")
+      (println summary))))
+
+(defonce command (atom nil))
+
 (defn main [& args]
-  (let [{:keys [arguments options summary errors] :as opts}
-        (parse-opts args cli-options)]
-    (cond
-      (some? errors)
-      (println errors)
-      (or (some? (:help options))
-          (and (empty? arguments) (empty? options)))
-      (do 
-        (println "Compiler for the Polygon Miden VM")
-        (println "Usage: midenfy [options] file*")
-        (println "Options:")
-        (println summary)))))
+  (let [opts (parse-opts args cli-options)]
+    (reset! command opts)
+    (execute opts)))
+
+(defn ^:dev/after-load activate! []
+  (println "# Executing command:" @command)
+  (execute @command))
