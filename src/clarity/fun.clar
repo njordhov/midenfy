@@ -3,4 +3,4 @@
 (define-public (calc)
   (* 3 7))
   
-;; (calc)
+(calc)

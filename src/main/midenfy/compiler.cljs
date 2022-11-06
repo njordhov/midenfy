@@ -22,7 +22,7 @@
     :int [:masm/push [:masm/int (second exp)]]))
 
 (defmethod compile-call :default [exp]
-  [:masm/exec (form-symbol exp) (form-content exp)])
+  (list [:masm/exec (form-symbol exp)]))
 
 (defmethod compile-call "+" [exp]
   (let [args (form-content exp)]

@@ -35,6 +35,10 @@
        (mapcat (partial format (+ 1 level))
                (rest (rest ast)))
        (list (indent level (linebreak "end"))))
+     :masm/exec 
+     (->> (str "exec." (string/replace (second ast) #"-" "_"))
+          (linebreak)
+          (indent level))
      (cond
        (keyword? (first ast))
        (indent level (linebreak (name (first ast))))
