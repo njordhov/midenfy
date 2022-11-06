@@ -17,13 +17,13 @@ https://github.com/maticnetwork/miden/tree/main/miden
 
 The compiler is written in [Clojure](https://clojure.org/), the programming language 
 [sponsored](https://www.finextra.com/newsarticle/36297/nubank-buys-firm-behind-clojure-programming-language) by [NuBank](https://building.nubank.com.br/clojure-15th-anniversary-a-retrospective/), 
-which [builds](https://blog.polygon.technology/nubank-taps-polygon-supernets-for-nucoin-token-launch-loyalty-program/) their blockchain services on Polygon.
+a [bnotable](https://blog.polygon.technology/nubank-taps-polygon-supernets-for-nucoin-token-launch-loyalty-program/) Polygon customer.
 
 The code can be used in web3 project such as web apps generating custom Miden VM programs,
 by using the [Clojurescript](https://clojurescript.org/) compiler. 
 
 Note: The initial version only supports a very limited subset of Clarity. It is
-not yet ready for production use.
+experimental and not yet ready for production use.
 
 PS: Here is a smart contract deployed to the Mumbai Testnet:
 https://mumbai.polygonscan.com/address/0x3A788CB91F3Bf73b5A4d373ff3533328286caf22
