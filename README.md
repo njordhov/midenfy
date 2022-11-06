@@ -1,6 +1,12 @@
 # midenfy
 
-Generate code for the Polygon Miden VM
+Compile Clarity smart contracts targeting the [Polygon Miden VM](https://polygon.technology/solutions/polygon-miden).
+
+[Clarity](https://clarity-lang.org/) is a decidable language for smart contracts, 
+initially targeting the [Stacks](https://www.stacks.co/) blockchain.
+
+Midenfy is a compiler for Clarity targeting the Miden VM, in response to the
+Polygon Miden team calling for compilers to be developed:
 
 > Our goal is to make Miden VM an easy compilation target for high-level 
 > blockchain-centric languages such as Solidity, Move, Sway, and others. 
@@ -8,6 +14,16 @@ Generate code for the Polygon Miden VM
 > their choice. However, compilers to help with this have not been developed yet.
 
 https://github.com/maticnetwork/miden/tree/main/miden
+
+The compiler is written in [Clojure](https://clojure.org/), the programming language 
+[sponsored](https://www.finextra.com/newsarticle/36297/nubank-buys-firm-behind-clojure-programming-language) by [NuBank](https://building.nubank.com.br/clojure-15th-anniversary-a-retrospective/), 
+which [builds](https://blog.polygon.technology/nubank-taps-polygon-supernets-for-nucoin-token-launch-loyalty-program/) their blockchain services on Polygon.
+
+The code can be used in web3 project such as web apps generating custom Miden VM programs,
+by using the [Clojurescript](https://clojurescript.org/) compiler. 
+
+PS: Here is a smart contract deployed to the Mumbai Testnet:
+https://mumbai.polygonscan.com/address/0x3A788CB91F3Bf73b5A4d373ff3533328286caf22
 
 ## Usage 
 
@@ -21,7 +37,11 @@ Compile a Clarity contract file into Miden masm:
 
 ```
 $ docker compose run midenfy src/clarity/add.clar
-```  
+```
+
+```
+$ docker compose run midenfy src/clarity/fun.clar
+```
 
 ## Miden
 
