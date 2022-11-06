@@ -1,6 +1,8 @@
 (ns midenfy.core
   (:require 
-   [clojure.tools.cli :refer [parse-opts]]))
+   [clojure.tools.cli :refer [parse-opts]]
+   [midenfy.compiler :as compiler 
+    :refer [compile]]))
 
 (def cli-options
   [[nil "--version"]
@@ -11,7 +13,8 @@
     (some? errors)
     (println errors)
     (empty? arguments)
-    (println "Hello")
+    (println (-> [:S [:list [:symbol "+"] [:int "1"] [:int "2"]]]
+                 compile))
     (or (some? (:help options))
         (and (empty? arguments) (empty? options)))
     (do 
