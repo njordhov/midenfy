@@ -22,6 +22,12 @@
       (map push-arg args) 
       (list [:masm/checked_add]))))
 
+(defmethod compile-call "-" [exp]
+  (let [args (rest (rest exp))]
+    (concat 
+      (map push-arg args) 
+      (list [:masm/checked_sub]))))
+
 (defmethod compile-form :default [form]
   nil)
 

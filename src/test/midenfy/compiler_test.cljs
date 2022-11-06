@@ -13,3 +13,11 @@
           [:masm/push [:masm/int "2"]]
           [:masm/checked_add]])     
       "Compile (+ 1 2)"))
+
+(deftest subtraction-test
+  (is (= (compile [:S [:list [:symbol "-"] [:int "7"] [:int "4"]]])
+         [:masm/begin 
+          [:masm/push [:masm/int "7"]]
+          [:masm/push [:masm/int "4"]]
+          [:masm/checked_sub]])     
+      "Compile (+ 1 2)"))
