@@ -22,10 +22,13 @@ which [builds](https://blog.polygon.technology/nubank-taps-polygon-supernets-for
 The code can be used in web3 project such as web apps generating custom Miden VM programs,
 by using the [Clojurescript](https://clojurescript.org/) compiler. 
 
+Note: The initial version only supports a very limited subset of Clarity, and are
+not yet ready for production use.
+
 PS: Here is a smart contract deployed to the Mumbai Testnet:
 https://mumbai.polygonscan.com/address/0x3A788CB91F3Bf73b5A4d373ff3533328286caf22
 
-## Usage 
+## Usage
 
 Execute with docker:
 
