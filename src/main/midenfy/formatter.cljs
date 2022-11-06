@@ -1,5 +1,6 @@
 (ns midenfy.formatter
-  [clojure.string :as string])
+  (:require
+    [clojure.string :as string]))
 
 (defn indent [level s]
   (str (apply str (repeat (* 2 level) " "))
@@ -28,9 +29,11 @@
       (linebreak))
      :masm/proc
      (concat
-       (list (indent level (str "proc." (replace (second ast) #"-" "_") ".0")))
+       (list (->> (str "proc." (string/replace (second ast) #"-" "_") ".0")
+                  (indent level)
+                  (linebreak)))
        (mapcat (partial format (+ 1 level))
-               (rest ast))
+               (rest (rest ast)))
        (list (indent level (linebreak "end"))))
      (cond
        (keyword? (first ast))

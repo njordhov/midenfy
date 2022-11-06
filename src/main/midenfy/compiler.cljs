@@ -5,6 +5,10 @@
            (= :symbol (first (second exp))))
     (second (second exp))))
 
+(defn symbol-name [form]
+  (case (first form)
+    :symbol (second form)))
+
 (defmulti compile-form first)
 
 (defmulti compile-call form-symbol)
@@ -41,11 +45,13 @@
       (list [:masm/checked_div]))))
 
 (defmethod compile-call "define-public" [exp]
-  (let [args (rest (rest exp))]
-        ;;fname (first (first exp))
+  (let [content (rest (rest exp))
+        head (first content)
+        body (rest content)
+        fname (symbol-name (second head))]
         ;; body (rest (rest exp))]
-    (list* [:masm/proc "zzz"] 
-           (map compile-call (rest args)))))
+    (list (into [:masm/proc fname] 
+                (mapcat compile-call body)))))
 
 (defmethod compile-form :default [form]
   nil)
