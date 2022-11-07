@@ -1,22 +1,17 @@
 # midenfy
 
-Developer Tool to compile Clarity smart contracts, targeting the [Polygon Miden VM](https://polygon.technology/solutions/polygon-miden). 
+Midenfy is a compiler for [Clarity](https://clarity-lang.org/) targeting the [Polygon Miden VM](https://polygon.technology/solutions/polygon-miden). Clarity is a decidable language for smart contracts, initially developed for the [Stacks](https://www.stacks.co/) blockchain.
 
-Note: The initial version only compiles a very limited subset of Clarity. It is
-a proof-of-concept and not yet ready for production use.
+_The initial version only compiles a very limited subset of Clarity. It is
+a proof-of-concept and not yet ready for production use._
 
-[Clarity](https://clarity-lang.org/) is a decidable language for smart contracts, 
-initially targeting the [Stacks](https://www.stacks.co/) blockchain.
-
-Midenfy is a compiler for Clarity targeting the Miden VM, in response to the
-Polygon Miden team calling for compilers to be developed:
+The project is in response to the
+Polygon Miden team [calling for development](https://github.com/maticnetwork/miden/tree/main/miden) of compilers from high-level blockchain-centric languages:
 
 > Our goal is to make Miden VM an easy compilation target for high-level 
 > blockchain-centric languages such as Solidity, Move, Sway, and others. 
 > We believe it is important to let people write programs in the languages of 
 > their choice. However, compilers to help with this have not been developed yet.
-
-https://github.com/maticnetwork/miden/tree/main/miden
 
 ## Usage
 
