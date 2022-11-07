@@ -18,13 +18,6 @@ Polygon Miden team calling for compilers to be developed:
 
 https://github.com/maticnetwork/miden/tree/main/miden
 
-The compiler is written in [Clojure](https://clojure.org/), the programming language 
-[sponsored](https://www.finextra.com/newsarticle/36297/nubank-buys-firm-behind-clojure-programming-language) by [NuBank](https://building.nubank.com.br/clojure-15th-anniversary-a-retrospective/), 
-a [notable](https://blog.polygon.technology/nubank-taps-polygon-supernets-for-nucoin-token-launch-loyalty-program/) Polygon partner.
-
-The code can be used in web3 project such as web apps generating custom Miden VM programs,
-by using the [Clojurescript](https://clojurescript.org/) compiler. 
-
 ## Usage
 
 Download and change into the directory:
@@ -51,6 +44,15 @@ $ docker compose run midenfy src/clarity/add.clar
 $ cat src/clarity/fun.clar
 $ docker compose run midenfy src/clarity/fun.clar
 ```
+
+## Implementation
+
+The compiler is written in [Clojure](https://clojure.org/), the programming language 
+[sponsored](https://www.finextra.com/newsarticle/36297/nubank-buys-firm-behind-clojure-programming-language) by [NuBank](https://building.nubank.com.br/clojure-15th-anniversary-a-retrospective/), 
+a [notable](https://blog.polygon.technology/nubank-taps-polygon-supernets-for-nucoin-token-launch-loyalty-program/) Polygon partner.
+
+The code can be used in web3 project such as web apps generating custom Miden VM programs,
+by using the [Clojurescript](https://clojurescript.org/) compiler. 
 
 ## Miden
 
