@@ -46,10 +46,12 @@ $ docker compose run midenfy --help
 Compile a Clarity contract file into Miden masm:
 
 ```
+$ cat src/clarity/add.clar
 $ docker compose run midenfy src/clarity/add.clar
 ```
 
 ```
+$ cat src/clarity/fun.clar
 $ docker compose run midenfy src/clarity/fun.clar
 ```
 
